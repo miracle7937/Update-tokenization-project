@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <!-- Card graphics -->
+    <com.thalesgroup.tshpaysample.ui.views.ViewCardFront
+        android:id="@+id/fragment_card_page_card_visual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"/>
+
+    <!-- Status -->
+    <LinearLayout
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal">
+        <TextView
+            android:textColor="@color/black"
+            android:layout_width="0dp"
+            android:layout_weight="@integer/fragment_card_page_left_column"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:gravity="end"
+            android:text="@string/fragment_card_page_status"/>
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/fragment_card_page_text_status"
+            android:layout_width="0dp"
+            android:layout_weight="@integer/fragment_card_page_right_column"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Is Default -->
+    <LinearLayout
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal">
+        <TextView
+            android:textColor="@color/black"
+            android:layout_width="0dp"
+            android:layout_weight="@integer/fragment_card_page_left_column"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:gravity="end"
+
+            android:text="@string/fragment_card_page_is_default"/>
+        <TextView
+            android:id="@+id/fragment_card_page_is_default"
+            android:layout_width="0dp"
+            android:layout_weight="@integer/fragment_card_page_right_column"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical">
+
+
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/fragment_card_page_button_delete"-->
+<!--        android:text="@string/fragment_card_page_button_delete"-->
+<!--            android:textColor="@color/white"-->
+<!--        android:layout_marginHorizontal="40dp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:height="55dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:background="@drawable/enable_disable_button_color"-->
+<!--            android:layout_height="wrap_content"/>-->
+        <com.thalesgroup.tshpaysample.logic.CustomButton
+            android:id="@+id/fragment_card_page_button_activate"
+            app:Text="@string/fragment_card_page_button_activate"
+            app:Image="@drawable/make_payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.thalesgroup.tshpaysample.logic.CustomButton
+            android:id="@+id/fragment_card_page_button_set_default"
+            app:Text="@string/fragment_card_page_button_set_default"
+            app:Image="@drawable/set_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.thalesgroup.tshpaysample.logic.CustomButton
+            android:id="@+id/fragment_card_page_button_payment"
+            app:Text="@string/fragment_card_page_button_payment"
+            app:Image="@drawable/make_payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.thalesgroup.tshpaysample.logic.CustomButton
+            android:id="@+id/fragment_card_page_button_resume"
+            app:Text="@string/fragment_card_page_button_resume"
+            app:Image="@drawable/make_payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+<!--        <com.thalesgroup.tshpaysample.logic.CustomButton-->
+<!--            android:id="@+id/fragment_card_page_button_suspend"-->
+<!--            app:Text="@string/fragment_card_page_button_suspend"-->
+<!--            app:Image="@drawable/make_payment"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+        <com.thalesgroup.tshpaysample.logic.CustomButton
+            android:id="@+id/fragment_card_page_button_delete"
+            app:Text="@string/fragment_card_page_button_delete"
+            app:Image="@drawable/delete_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="test_data_green_pan">4147049980036808</string>
+    <string name="test_data_yellow_pan">4147049980036816</string>
+    <string name="test_data_exp">1225</string>
+    <string name="test_data_cvv">123</string>
+</resources>

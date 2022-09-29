@@ -1,0 +1,16 @@
+
+added config
+* keystone
+* assets file
+* SdkConstants data
+
+
+(1) change the InputMethod.MANUAL, to  inputMethod.Bank
+(2)  enrollment uses {{encData }} from the bank end
+
+
+//replenishment (TokenReplenishment class)
+
+//check if a device is surported  RuntimeException("Device not suitable for this application.")
+
+
