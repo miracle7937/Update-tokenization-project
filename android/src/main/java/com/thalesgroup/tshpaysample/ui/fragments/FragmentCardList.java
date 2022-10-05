@@ -28,7 +28,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -50,7 +50,7 @@ public class FragmentCardList extends AbstractFragment implements CheckEmptyView
     //endregion
 
     //region Life Cycle
-    ImageView emptyImage;
+    LinearLayout emptyView;
 
     @Override
     public int getFragmentCaption() {
@@ -75,7 +75,7 @@ public class FragmentCardList extends AbstractFragment implements CheckEmptyView
         pager.setAdapter(mCardListAdapter);
         // Floating button to add new card.
         retValue.findViewById(R.id.fragment_card_list_add_button).setOnClickListener(this::onButtonPressedAdd);
-        emptyImage = retValue.findViewById(R.id.empty_imageView);
+        emptyView = retValue.findViewById(R.id.empty_empty_view);
         // Display dots as page indicator
         new TabLayoutMediator(retValue.findViewById(R.id.fragment_card_list_tab_layout), pager, (tab, position) -> {
 
@@ -125,7 +125,7 @@ public class FragmentCardList extends AbstractFragment implements CheckEmptyView
 
     @Override
     public void viewCheckNotEmpty() {
-    emptyImage.setVisibility(View.INVISIBLE);
+        emptyView.setVisibility(View.INVISIBLE);
     }
 
     //endregion

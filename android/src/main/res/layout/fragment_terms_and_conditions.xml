@@ -19,39 +19,25 @@
         android:orientation="vertical">
         <Button
             android:id="@+id/fragment_terms_and_conditions_button_accept"
-            android:text="@string/fragment_terms_and_conditions_button_accept"            android:layout_marginHorizontal="40dp"
+            android:text="@string/fragment_terms_and_conditions_button_accept"
+            android:layout_marginHorizontal="40dp"
             android:layout_width="match_parent"
             android:height="55dp"
         android:layout_marginBottom="10dp"
             android:background="@drawable/zenith_button_style"
             android:layout_height="wrap_content"/>
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/fragment_terms_and_conditions_button_decline"
             android:text="@string/fragment_terms_and_conditions_button_decline"
             android:layout_marginHorizontal="40dp"
             android:layout_width="match_parent"
             android:height="55dp"
-            android:background="@drawable/zenith_button_style"
+                android:textColor="@color/zenith_color"
+            android:background="@drawable/zenith_button_style_with_border"
             android:paddingBottom="10dp"
             android:layout_height="wrap_content"/>
 
-<!--        <Button-->
-<!--            android:id="@+id/fragment_terms_and_conditions_button_accept"-->
-<!--            style=""-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="16dp"-->
-<!--            android:paddingStart="32dp"-->
-<!--            android:paddingEnd="32dp"-->
-<!--            android:text="@string/fragment_terms_and_conditions_button_accept"/>-->
-<!--        <Button-->
-<!--            android:id="@+id/fragment_terms_and_conditions_button_decline"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="16dp"-->
-<!--            android:paddingStart="32dp"-->
-<!--            android:paddingEnd="32dp"-->
-<!--            android:text="@string/fragment_terms_and_conditions_button_decline"/>-->
+
     </LinearLayout>
 
 </LinearLayout>

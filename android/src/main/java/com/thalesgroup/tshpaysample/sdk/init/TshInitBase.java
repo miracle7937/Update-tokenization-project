@@ -203,7 +203,7 @@ public class TshInitBase {
         try {
             // Avoid multiple init.
             if (getMgSdkState() != MGSDKConfigurationState.NOT_CONFIGURED) {
-                callback.onError(mContext.getString(R.string.mg_error_sdk_already_init));
+//                callback.onError(mContext.getString(R.string.mg_error_sdk_already_init));
                 return;
             }
 

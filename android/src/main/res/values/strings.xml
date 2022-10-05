@@ -73,8 +73,8 @@
 
     <!-- Fragment Terms & Conditions -->
     <string name="fragment_terms_and_conditions_caption">Terms &amp; Conditions</string>
-    <string name="fragment_terms_and_conditions_button_accept">Accept</string>
-    <string name="fragment_terms_and_conditions_button_decline">Decline</string>
+    <string name="fragment_terms_and_conditions_button_accept">I Agree</string>
+    <string name="fragment_terms_and_conditions_button_decline">I Disagree</string>
 
     <!-- Fragment Card List -->
     <string name="fragment_card_list_caption">Card List</string>
@@ -132,5 +132,7 @@
     <string name="success">Success</string>
     <string name="bottom_sheet_message">Nothing</string>
     <string name="enter_cvv">Enter CVV</string>
+    <string name="tap_tp_add_card">Tap on + to add a card to your wallet</string>
+    <string name="your_wallet_is_empty_2">Your wallet is empty.</string>
 
 </resources>

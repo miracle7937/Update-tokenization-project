@@ -43,7 +43,8 @@ public class BaseAppActivity extends AppCompatActivity {
             if (currentFragment != null) {
                 currentFragment.onInitStateChanged(state, error);
             }
-            displayMessageToast(error);
+            //remove because SDK has been initialised
+//            displayMessageToast(error);
         });
 
         // Register for incoming push notifications.

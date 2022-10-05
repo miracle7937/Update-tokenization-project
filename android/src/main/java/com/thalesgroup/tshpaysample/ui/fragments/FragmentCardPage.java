@@ -156,7 +156,6 @@ public class FragmentCardPage extends Fragment {
 
 
        mButtonActivate.setVisibility(View.GONE);
-//        mButtonSuspend.setVisibility(View.GONE);
         mButtonSetDefault.setVisibility(View.GONE);
         mButtonEnroll.setVisibility(View.GONE);
         mButtonPayment.setVisibility(View.GONE);
@@ -169,9 +168,6 @@ public class FragmentCardPage extends Fragment {
 
                 switch (value.getState()) {
                     case ACTIVE:
-//                        mButtonSuspend.setEnabled(true);
-//                        mButtonPayment.setEnabled(true);
-//                        mButtonSuspend.setVisibility(View.VISIBLE);
                         mButtonPayment.setVisibility(View.VISIBLE);
                         mCardWrapper.isDefault((isDefault, message) -> {
                             mCardVisual.setCardVisibilityIcon(isDefault); // set default icon visibility
@@ -187,10 +183,8 @@ public class FragmentCardPage extends Fragment {
                     case SUSPENDED:
                         final PendingCardActivation pendingActiovation = mCardWrapper.getPendingActivation();
                         if (pendingActiovation != null) {
-//                            mButtonEnroll.setEnabled(true);
                             mButtonEnroll.setVisibility(View.VISIBLE);
                         } else {
-//                            mButtonActivate.setEnabled(true);
                             mButtonActivate.setVisibility(View.VISIBLE);
                         }
                         break;

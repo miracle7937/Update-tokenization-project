@@ -52,7 +52,6 @@ import com.thalesgroup.tshpaysample.sdk.helpers.InternalNotificationsUtils;
 import com.thalesgroup.tshpaysample.ui.PaymentActivity;
 import com.thalesgroup.tshpaysample.utlis.AppLoggerHelper;
 import com.thalesgroup.tshpaysample.utlis.UtilsCurrenciesConstants;
-
 public class TshPaymentListener implements ContactlessPaymentServiceListener {
 
     //region Defines
@@ -80,11 +79,17 @@ public class TshPaymentListener implements ContactlessPaymentServiceListener {
      * Main entry point which need to be called as soon as the app will run.
      */
     public void init(@NonNull final Context context) {
-        mContext = context;
-        mDelayedError = new Handler(Looper.getMainLooper());
+        if(mContext== null){
+            mContext = context;
+            mDelayedError = new Handler(Looper.getMainLooper());
+            // Prepare default values.
+            resetState(true);
+        }
 
-        // Prepare default values.
-        resetState(true);
+    }
+
+    public TshPaymentState getPaymentState() {
+        return mPaymentState;
     }
 
     //endregion
@@ -217,29 +222,6 @@ public class TshPaymentListener implements ContactlessPaymentServiceListener {
         updateState(TshPaymentState.STATE_ON_READY_TO_TAP, new TshPaymentData(mAmount, mCurrency, mCurrentCardId));
     }
 
-    private TransactionContext retrieveTransactionContext(final PaymentService paymentService) {
-
-        if (paymentService == null) {
-            return null;
-        } else {
-            return paymentService.getTransactionContext();
-        }
-    }
-
-    private void updateAmountAndCurrency(final PaymentService paymentService) {
-        updateAmountAndCurrency(retrieveTransactionContext(paymentService));
-    }
-
-    private void updateAmountAndCurrency(final TransactionContext transactionContext) {
-        if (transactionContext == null) {
-            mAmount = -1.0;
-            mCurrency = null;
-        } else {
-            mAmount = transactionContext.getAmount();
-            mCurrency = UtilsCurrenciesConstants.getCurrency(transactionContext.getCurrencyCode()).getCurrencyCode();
-        }
-    }
-
     @Override
     public void onNextTransactionReady(final DeactivationStatus deactivationStatus,
                                        final DigitalizedCardStatus digitalizedCardStatus,
@@ -249,6 +231,7 @@ public class TshPaymentListener implements ContactlessPaymentServiceListener {
             cardWrapper.replenishKeysIfNeeded(false);
         }
     }
+
     @Override
     public void onError(final SDKError<PaymentServiceErrorCode> sdkError) {
         AppLoggerHelper.info(TAG, "onError");
@@ -286,12 +269,35 @@ public class TshPaymentListener implements ContactlessPaymentServiceListener {
         }
     }
 
+    //endregion
+
+    //region Private Helpers
+
     private void loadCurrentCardData() {
         mCurrentCardId = DigitalizedCardManager.getDefault(PaymentType.CONTACTLESS, null).waitToComplete().getResult();
     }
 
-    public TshPaymentState getPaymentState() {
-        return mPaymentState;
+    private TransactionContext retrieveTransactionContext(final PaymentService paymentService) {
+
+        if (paymentService == null) {
+            return null;
+        } else {
+            return paymentService.getTransactionContext();
+        }
+    }
+
+    private void updateAmountAndCurrency(final PaymentService paymentService) {
+        updateAmountAndCurrency(retrieveTransactionContext(paymentService));
+    }
+
+    private void updateAmountAndCurrency(final TransactionContext transactionContext) {
+        if (transactionContext == null) {
+            mAmount = -1.0;
+            mCurrency = null;
+        } else {
+            mAmount = transactionContext.getAmount();
+            mCurrency = UtilsCurrenciesConstants.getCurrency(transactionContext.getCurrencyCode()).getCurrencyCode();
+        }
     }
 
     //endregion

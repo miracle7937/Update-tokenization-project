@@ -127,7 +127,7 @@ public class FragmentSplash extends AbstractFragment {
     //region User Interface
 
     private void onButtonPressedRetry(final View sender) {
-        SdkHelper.getInstance().getInit().init(getContext());
+      SdkHelper.getInstance().getInit().init(getContext());
     }
 
     //endregion

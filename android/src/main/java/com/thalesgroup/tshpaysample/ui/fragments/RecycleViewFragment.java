@@ -1,5 +1,6 @@
 package com.thalesgroup.tshpaysample.ui.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -67,7 +68,7 @@ public class RecycleViewFragment extends AbstractFragment implements OnItemClick
 
     private  void requestCardInitialization(){
         CardRequestInterface cardRequestInterface =  RequestRepository.retrofit.create(CardRequestInterface.class);
-        Call<RemoteCardDetail> call = cardRequestInterface.getAllCard(UserAccount.getInstance().getAccount());
+     Call<RemoteCardDetail> call = cardRequestInterface.getAllCard(UserAccount.getInstance().getAccount());
         getMainActivity().progressShow("fetching card detail");
         new Thread(new Runnable() {
             @Override
@@ -76,28 +77,29 @@ public class RecycleViewFragment extends AbstractFragment implements OnItemClick
                     @Override
                     public void onResponse(Call<RemoteCardDetail> call, Response<RemoteCardDetail> response) {
                         getMainActivity().runOnUiThread(new Runnable() {
+                            @SuppressLint("NotifyDataSetChanged")
                             @RequiresApi(api = Build.VERSION_CODES.N)
                             @Override
                             public void run() {
-                                assert response.body() != null;
-                                System.out.println("Hello successFul " + response.body().getData());
-                                for (CardInfo value: response.body().getData()) {
-                                    cardModelList.add(new CardModel(
-                                            value.getNameOnCard(),
-                                            value.getCardType(),
-                                            value.getCardTypeDescription(),
-                                            value.getMaskedFPan(),
-                                            value.getExpiryDate(),
-                                            value.getCipheredCardInfo()
-                                    ));
-                                    if(!cardModelList.isEmpty()){
-                                        System.out.println(cardModelList.get(0).getCardType()+ "====>u");
+                                if(response.body() != null){
+                                    for (CardInfo value: response.body().getData()) {
+                                        cardModelList.add(new CardModel(
+                                                value.getNameOnCard(),
+                                                value.getCardType(),
+                                                value.getCardTypeDescription(),
+                                                value.getMaskedFPan(),
+                                                value.getExpiryDate(),
+                                                value.getCipheredCardInfo()
+                                        ));
                                     }
-
                                 }
+
                                 cardItemAdapter.notifyDataSetChanged();
                                 getMainActivity().progressHide();
-
+                                if(cardModelList.isEmpty()){
+                                    //navigate back if empty
+                                    getMainActivity().hideCurrentFragment();
+                                }
                             }
                         });
 
@@ -108,7 +110,6 @@ public class RecycleViewFragment extends AbstractFragment implements OnItemClick
                         getMainActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                System.out.println("Hello fails "+ t);
                                 getMainActivity().progressHide();
 
                             }
