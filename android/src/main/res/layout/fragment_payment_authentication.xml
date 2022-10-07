@@ -69,7 +69,7 @@
         <Button
             android:id="@+id/btn_authenticate"
             android:text="@string/fragment_payment_verify_by_keyguard"
-            android:textColor="@color/grey"
+            android:textColor="@color/white"
             android:layout_marginHorizontal="40dp"
             android:layout_width="match_parent"
             android:height="55dp"

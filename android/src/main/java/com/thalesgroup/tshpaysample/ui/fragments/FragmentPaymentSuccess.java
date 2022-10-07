@@ -28,6 +28,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.flutter_tokenization_plugin.R;
@@ -54,13 +55,18 @@ public class FragmentPaymentSuccess extends AbstractFragment {
         final View root = inflater.inflate(R.layout.fragment_payment_success, container, false);
         final TextView amountTextView = root.findViewById(R.id.amount);
         final ViewCardFront cardFrontView = root.findViewById(R.id.fragment_payment_success_card_visual);
+        final Button continueButton = root.findViewById(R.id.card_reading_success_button);
 
         final TshPaymentData data = getPaymentActivity().getSuccessData();
         if (data != null) {
             amountTextView.setText(String.format(Locale.getDefault(), "%s %s", data.getAmount(), data.getCurrency()));
             cardFrontView.loadCardDetails(new CardWrapper(data.getDigitalizedCardId()));
         }
+        continueButton.setOnClickListener(view -> {
+            getPaymentActivity().onBackPressed();
+        });
         return root;
+
     }
 
     //endregion

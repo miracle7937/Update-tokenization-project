@@ -134,5 +134,8 @@
     <string name="enter_cvv">Enter CVV</string>
     <string name="tap_tp_add_card">Tap on + to add a card to your wallet</string>
     <string name="your_wallet_is_empty_2">Your wallet is empty.</string>
+    <string name="card_read_successfully">Card Read Succesfully</string>
+    <string name="card_reading_success_subtitle">Your card has succesfully been read by the POS terminal</string>
+    <string name="continue_text">Continue</string>
 
 </resources>

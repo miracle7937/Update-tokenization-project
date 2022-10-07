@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center|top"
@@ -17,23 +18,58 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
-
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:id="@+id/reading_card_successful"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/reading_card_successful"
+            android:layout_gravity="center"
+            tools:ignore="ContentDescription" />
         <TextView
+            android:layout_marginVertical="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
-            android:text="Success, you paid"
-            android:textColor="@android:color/holo_green_dark" />
-
-
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:text="@string/card_read_successfully"
+            android:textColor="@color/black" />
+        <TextView
+            android:textAlignment="center"
+            android:id="@+id/card_success_read_id"
+            android:textColor="@color/grey"
+            android:layout_marginBottom="15dp"
+            android:textSize="15sp"
+            android:text="@string/card_reading_success_subtitle"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
         <TextView
             android:id="@+id/amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
-            android:text="12 euro"
+            android:text="12 NGN"
             android:textColor="@color/black"
             android:textSize="30sp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+        <Button
+
+            android:layout_marginBottom="15dp"
+            android:id="@+id/card_reading_success_button"
+            android:text="@string/continue_text"
+            android:layout_marginHorizontal="40dp"
+            android:layout_width="match_parent"
+            android:height="55dp"
+            android:background="@drawable/zenith_button_style"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
